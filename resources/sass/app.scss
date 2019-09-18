@@ -1,0 +1,18 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+
+// Variables
+@import 'variables';
+//normalize
+@import 'normalize.css';
+// Bootstrap
+@import '~bootstrap/scss/bootstrap-grid';
+
+// Main Application Styles
+@import 'common';
+@import 'input';
+@import 'header';
+@import 'article';
+@import 'comment';
+@import 'footer';
+@import 'create_post';

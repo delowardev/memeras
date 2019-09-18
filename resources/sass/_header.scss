@@ -1,0 +1,29 @@
+header{
+    padding: 22px 17px;
+    border-bottom: 1px solid #ddd;
+    .site-title{
+        margin-bottom: 0;
+        font-size: 26px;
+        a{
+            padding: 10px 0;
+        }
+    }
+    a{
+        color: var(--color-text);
+        &:hover{
+            color: var(--color-primary);
+        }
+    }
+}
+
+.navigation-menu{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    li{
+        display: inline-block;
+        a{
+            padding: 10px;
+        }
+    }
+}
