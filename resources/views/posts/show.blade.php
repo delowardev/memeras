@@ -21,7 +21,7 @@
                         </div>
                     </div>
                     <div class="single-post-social-share post-meta-segment">
-                        <h5 class="post-meta-segment-title">Share this</h4>
+                        <h5 class="post-meta-segment-title">Share this</h5>
                         <ul>
                             <li><a href="#">Facebook</a></li>
                             <li><a href="#">Twitter</a></li>
@@ -30,7 +30,7 @@
                         </ul>
                     </div>
                     <div class="single-post-related post-meta-segment">
-                        <h5 class="post-meta-segment-title">Related post</h4>
+                        <h5 class="post-meta-segment-title">Related post</h5>
                         <div class="row">
                             <div class="col-4">
                                 <div class="releated-post-item">

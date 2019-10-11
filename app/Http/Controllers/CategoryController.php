@@ -12,9 +12,9 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Category $category)
     {
-        //
+        return view('categories.index', compact('category'));
     }
 
     /**
@@ -22,9 +22,9 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Category $category)
     {
-        //
+        return view('categories.index', compact('category'));
     }
 
     /**
@@ -33,9 +33,17 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Category $category)
     {
-        //
+        $validData = $request->validate([
+            'name'  => 'required|min:3',
+            'slug'  => 'required|min:3|unique:categories',
+        ]);
+
+        $validData['description'] = $request->description;
+        $category->create($validData);
+
+//        return $request.back();
     }
 
     /**

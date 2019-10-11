@@ -34,7 +34,8 @@
                             <textarea name="summernote" id="content" placeholder="Post content"></textarea>
                         </div>
                         <div class="input-row">
-                            <button class="primary" type="submit">Post Comment</button>
+                            <button class="primary" type="submit">Create Post</button>
+                            <button class="primary">Save as draft</button>
                         </div>
                     </div>
                 </div>
