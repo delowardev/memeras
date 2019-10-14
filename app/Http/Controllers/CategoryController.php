@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
 {
@@ -12,8 +13,9 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Category $category)
+    public function index()
     {
+        $category = DB::table('categories')->orderBy('created_at', 'DESC')->paginate(10);
         return view('categories.index', compact('category'));
     }
 
@@ -43,7 +45,7 @@ class CategoryController extends Controller
         $validData['description'] = $request->description;
         $category->create($validData);
 
-//        return $request.back();
+        return back();
     }
 
     /**
@@ -54,7 +56,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        return view('categories.show', compact('category'));
     }
 
     /**
@@ -65,7 +67,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('categories.edit', compact('category'));
     }
 
     /**
@@ -77,7 +79,12 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $category->update($request->validate([
+            'name' => 'min:3|required',
+            'slug' => 'min:3|required',
+            'description' => ''
+        ]));
+        return redirect('/categories');
     }
 
     /**
@@ -88,6 +95,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return redirect('/categories');
     }
 }

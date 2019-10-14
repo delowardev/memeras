@@ -7,5 +7,5 @@
 require('./bootstrap');
 
 (function ($) {
-    $('.select-2').select2();
-}(jQuery))
+    // $('.select-2').select2();
+}(jQuery));

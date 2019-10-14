@@ -36913,8 +36913,7 @@ module.exports = function(module) {
  */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-(function ($) {
-  $('.select-2').select2();
+(function ($) {// $('.select-2').select2();
 })(jQuery);
 
 /***/ }),
