@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Post;
 use Illuminate\Http\Request;
 
@@ -23,9 +24,9 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Category $category)
     {
-        return view('posts.create');
+        return view('posts.create', compact('category'));
     }
 
     /**
@@ -36,7 +37,12 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validData = $request->validate([
+            'title' => 'min:5|required',
+            'content' => 'min:10|required'
+        ]);
+
+        return $request;
     }
 
     /**

@@ -2,40 +2,34 @@
 @section('content')
     <section class="create-post-section">
         <div class="container">
-            <form action="{{url('/posts')}}">
+            <form action="{{url('/posts')}}" method="POST">
                 @csrf
-                @method('POST')
                 <div class="row">
                     <div class="col-3">
                         <div class="input-row">
-                            <label for="category">Category</label>
-                            <select class="select-2" name="category" id="category">
-                                <option value="cat0">Uncategorized</option>
-                                <option value="cat1">HTML</option>
-                                <option value="cat2">WordPress</option>
-                            </select>
-                        </div>
-                        <div class="input-row">
-                            <label for="category">Tags</label>
-                            <select class="select-2" multiple name="tags" id="tags">
-                                <option value="cat0">Uncategorized</option>
-                                <option value="cat1">HTML</option>
-                                <option value="cat2">WordPress</option>
-                            </select>
+                            @if($category->all() !== 0)
+                                <label for="category">Category</label>
+                                <select class="select-2 form-control form-control-lg" name="category" id="category">
+                                    <option selected value="">Uncategorized</option>
+                                    @foreach($category->all() as $cat)
+                                        <option value="{{$cat->id}}">{{$cat->name}}</option>
+                                    @endforeach
+                                </select>
+                            @endif
                         </div>
                     </div>
                     <div class="col-9">
                         <div class="input-row">
                             <label for="title">Post title <span class="required-star">*</span></label>
-                            <input type="text" name="title" id="title" placeholder="Post title">
+                            <input type="text" class="form-control form-control-lg" name="title" id="title" placeholder="Post title">
                         </div>
                         <div class="input-row">
                             <label for="content">Post content <span class="required-star">*</span></label>
-                            <textarea name="summernote" id="content" placeholder="Post content"></textarea>
+                            <textarea name="summernote" class="form-control form-control-lg" id="content" rows="6" placeholder="Post content"></textarea>
                         </div>
-                        <div class="input-row">
-                            <button class="primary" type="submit">Create Post</button>
-                            <button class="primary">Save as draft</button>
+                        <div class="btn-group-lg text-right">
+                            <input type="submit" class="btn btn-primary pl-4 pr-4 mr-2" value="Publish Now">
+{{--                            <input type="submit" class="btn btn-success pl-4 pr-4" value="Save as draft">--}}
                         </div>
                     </div>
                 </div>
