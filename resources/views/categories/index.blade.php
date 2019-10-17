@@ -17,7 +17,7 @@
             @endif
             <div class="row">
                 <div class="col-md-4">
-                    <form action="{{'/categories'}}" method="POST">
+                    <form action="{{url('/categories')}}" method="POST">
                         @csrf
                         <h4>Add new terms</h4>
                         <div class="form-group">

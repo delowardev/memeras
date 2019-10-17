@@ -2,6 +2,19 @@
 @section('content')
     <section class="create-post-section">
         <div class="container">
+            @if($errors->any())
+                <div class="row">
+                    <div class="col-12">
+                        <div class="alert alert-danger" role="alert">
+                            <ul class="m-0">
+                                @foreach($errors->all() as $error)
+                                    <li>{{$error}}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            @endif
             <form action="{{url('/posts')}}" method="POST">
                 @csrf
                 <div class="row">
@@ -25,11 +38,11 @@
                         </div>
                         <div class="input-row">
                             <label for="content">Post content <span class="required-star">*</span></label>
-                            <textarea name="summernote" class="form-control form-control-lg" id="content" rows="6" placeholder="Post content"></textarea>
+                            <textarea name="content" class="form-control form-control-lg" id="content" rows="6" placeholder="Post content"></textarea>
                         </div>
                         <div class="btn-group-lg text-right">
                             <input type="submit" class="btn btn-primary pl-4 pr-4 mr-2" value="Publish Now">
-{{--                            <input type="submit" class="btn btn-success pl-4 pr-4" value="Save as draft">--}}
+                            <input type="submit" class="btn btn-success pl-4 pr-4" value="Save as draft">
                         </div>
                     </div>
                 </div>
